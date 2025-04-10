@@ -1,88 +1,71 @@
-# 🧪 Cybersecurity Home Lab & Security+ Tracker
+ 🧠 Cybersecurity Lab Tracker – Oleh Borysovskyy
 
-Welcome to my personal cybersecurity lab project! This GitHub repository documents my hands-on learning journey as I prepare for the **CompTIA Security+ (SY0-701)** certification.
-
----
-
-## 🔐 About This Lab
-I'm building and simulating real-world security scenarios in a **physical home lab** environment to:
-- Practice penetration testing and threat detection
-- Gain hands-on experience with security tools and techniques
-- Reinforce Security+ exam objectives
-- Document and showcase my skills to potential employers
+## ✅ Overview
+This file tracks my progress through hands-on cybersecurity projects in my home lab, aligned with the CompTIA Security+ exam objectives and real-world penetration testing scenarios.
 
 ---
 
-## 🧱 Lab Infrastructure
-### 🖥️ Devices
-- **Windows Server 2025** – Target system with Active Directory
-- **Windows 11 Pro** – Used for remote access and admin tasks
-- **Kali Linux** – Attacker system
-- **Netgear Router** – Isolated internal network
+## 📅 Activity Log
 
-### 🔌 Network
-- Subnet: `192.168.1.0/24`
-- Kali: `192.168.1.10`
-- Windows Server: `192.168.1.2`
-- Router: `192.168.1.1`
-
-### 🛠️ Tools Installed
-- **Sysmon** & **Windows Defender**
-- **Active Directory + GPO**
-- **Kali Linux Toolkit** (Nmap, Nikto, Metasploit, etc.)
-- **(Planned)**: Wazuh SIEM, IDS setup on separate Linux machine
+| Date       | Task/Experiment                                      | Tools Used              | Notes |
+|------------|-------------------------------------------------------|--------------------------|-------|
+| 2025-04-10 | Scanned Windows Server 2025 w/ Nmap                   | Nmap                     | Found open ports: 22, 80, 445 |
+| 2025-04-11 | Enum4linux scan on target                             | Enum4linux              | Pulled domain info via SMB |
+| 2025-04-12 | Created tracker + updated README.md                   | Markdown                | Polished repo presentation |
 
 ---
 
-## 📊 Security+ Lab Tracker
-Check out my active progress on labs mapped to the **Security+ exam domains**:
-👉 [View My Security+ Lab Tracker](https://github.com/olehstudycyber/securityplus-lab-tracker/blob/main/SECURITY%2B_LAB_TRACKER.md)
+## 🔍 Recon & Scanning Progress
 
-Each lab includes:
-- Task breakdown
-- Tools used
-- Lab notes and results
-- Links to logs, screenshots, and documentation
-
-### 🔗 Quick Access to Labs
-- 🔎 [Nmap Scan (Recon)](https://github.com/olehstudycyber/physical-lab-penetration-test/blob/main/labs/recon/nmap-scan.md)
-- 💥 [Metasploit CVE (Exploitation)](https://github.com/olehstudycyber/physical-lab-penetration-test/blob/main/labs/exploitation/metasploit-cve.md)
-- 🔍 [Sysmon Analysis (Detection)](https://github.com/olehstudycyber/physical-lab-penetration-test/blob/main/labs/detection/sysmon-analysis.md)
-- 🧾 [Risk Assessment Report](https://github.com/olehstudycyber/physical-lab-penetration-test/blob/main/labs/reports/risk-assessment.md)
+- [x] Nmap scanning
+- [x] Netdiscover
+- [x] Enum4linux
+- [ ] Nikto
+- [ ] Dirb / Gobuster
 
 ---
 
-## 📁 Repository Structure *(planned)*
-```
-.
-├── SECURITY+_LAB_TRACKER.md   # Tracker for Security+ lab tasks
-├── README.md                  # Project overview (this file)
-└── labs/
-    ├── recon/
-    │   └── nmap-scan.md
-    ├── exploitation/
-    │   └── metasploit-cve.md
-    ├── detection/
-    │   └── sysmon-analysis.md
-    └── reports/
-        └── risk-assessment.md
-```
+## 💥 Exploitation Techniques Practiced
+
+| Technique              | Target              | Status     | Notes |
+|------------------------|---------------------|------------|-------|
+| SMB Exploitation       | Windows Server 2025 | ✅ Complete | SMBv1 confirmed; tested exploits |
+| SSH Brute Force        | Windows Server 2025 | 🔄 In Progress | Hydra attempts; account lockout triggered |
 
 ---
 
-## 🚧 In Progress
-- [ ] Set up Wazuh SIEM on Linux machine
-- [ ] Simulate brute-force and phishing attacks
-- [ ] Analyze network traffic using Wireshark
-- [ ] Document completed labs and upload artifacts
+## 🛡 Hardening & Monitoring Progress
+
+- [x] Installed Sysmon on Server
+- [x] Enabled Windows Defender rules
+- [ ] Setup Wazuh Manager (Coming soon)
+- [ ] Configure log forwarding to Wazuh
+- [ ] Write Sigma detection rules
 
 ---
 
-## 📞 Contact
-**Oleh** – Cybersecurity enthusiast working toward a career in security analysis.  
-📫 [GitHub Profile](https://github.com/olehstudycyber)
+## 📖 Security+ Study Tracker
+
+| Domain                         | % Complete | Notes |
+|--------------------------------|------------|-------|
+| 1.0 Threats, Attacks, & Vulns | 80%        | Reviewing port/protocol questions |
+| 2.0 Architecture & Design      | 60%        | Diagrams & secure configs |
+| 3.0 Implementation             | 70%        | Practicing tools in lab |
+| 4.0 Operations & Incident Resp | 40%        | Will start blue team exercises |
+| 5.0 Governance & Risk          | 50%        | Notes from HRCI cert helping here |
 
 ---
 
-> This project is built for educational and professional development purposes in a secure, isolated environment.
+## 📂 Key Repo Links
 
+- 🔗 [`recon_logs/`](./recon_logs/)
+- 🔗 [`exploitation/`](./exploitation/)
+- 🔗 [`post_exploitation/`](./post_exploitation/)
+- 🔗 [`SIEM_IDS/`](./SIEM_IDS/)
+- 🔗 [`reports/`](./reports/)
+
+---
+
+## 🔚 Notes
+
+This tracker will be updated regularly as I advance through projects, attacks, defense, and study objectives. It's part of my portfolio toward landing a cybersecurity analyst role.
