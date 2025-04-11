@@ -2,7 +2,11 @@
 
 ## ✅ Overview
 This file tracks my progress through hands-on cybersecurity projects in my home lab, aligned with the CompTIA Security+ exam objectives and real-world penetration testing scenarios.
+## 🖼️ Lab Network Diagram
 
+![Lab Network Diagram](./reports/lab_network_diagram.png)## 🖼️ Lab Network Diagram
+
+![Lab Network Diagram](./reports/lab_network_diagram.png)
 ---
 
 ## 📅 Activity Log
