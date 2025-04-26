@@ -253,6 +253,90 @@ This file tracks my progress through hands-on cybersecurity projects in my home 
 ---
 
 💡 **Tip:** Aim for 85–90% on practice tests before booking your exam.
+# 🛡️ Cybersecurity Home Lab - Isolated Network Setup Progress
+
+## Goal
+Establish a functional isolated lab network environment for penetration testing, consisting of:
+- **Windows Server 2025** (Target Machine)
+- **Kali Linux** (Attacker Machine)
+- **Windows 7 Virtual Machine** (Secondary Target for Multi-Host Attack Simulation)
+
+All systems operate on a dedicated **192.168.1.0/24 subnet** via a **Netgear router**, with no internet exposure.
+
+---
+
+## Key Steps Completed
+
+### 🛧️ 1. Network Setup Verification
+- Physical machines (**Windows Server 2025** and **Kali Linux**) successfully connected to the Netgear router.
+- Verified correct IP address assignment on the **192.168.1.0/24** network.
+
+---
+
+### 🖥️ 2. Bridging the Windows 7 VM (VirtualBox)
+- Configured VM network adapter:
+  - Mode: **Bridged Adapter**
+  - Interface: **Realtek Gaming 2.5GbE Family Controller**
+- Initial Issue:  
+  - Windows 7 VM received **APIPA address** (169.254.x.x), indicating DHCP failure.
+- Resolution:  
+  - Verified physical Ethernet connection from Windows 11 host to router.
+  - Confirmed proper network adapter selected in VirtualBox settings.
+  - **Rebooted** Windows 11 host — Windows 7 VM then successfully obtained a DHCP IP address within the **192.168.1.0/24** subnet.
+
+---
+
+### 🌐 3. Verifying Network Connectivity
+- Inside the Windows 7 VM:
+  - Ran `ipconfig` to confirm valid IP assignment (e.g., 192.168.1.3).
+- From Kali Linux:
+  - Ran `nmap -sn 192.168.1.0/24` to discover live hosts.
+  - Successfully identified the Windows 7 VM on the network.
+
+---
+
+### 🔎 4. Scanning the Windows 7 VM with Nmap
+- Full TCP port scan:
+  ```
+  sudo nmap -sV -p- 192.168.1.3
+  ```
+  - Only **port 1716** reported as open (tcpwrapped).
+
+- Targeted scan for common Windows ports:
+  ```
+  sudo nmap -sV -p 135,445,3389 192.168.1.3
+  ```
+  - No additional open ports found.
+
+---
+
+### 🔥 5. Troubleshooting Blocked Ports
+- Identified **Windows Firewall** on the Windows 7 VM likely blocking incoming traffic.
+- Discussed two options:
+  - **Disable Windows Firewall** temporarily (faster testing for isolated labs).
+  - **Create specific Inbound Rules** to allow traffic on selected ports (real-world best practice).
+
+---
+
+## 🧹 Current Status
+- **Network connectivity** between Kali, Windows Server 2025, and Windows 7 VM is confirmed.
+- **Open ports and services** on Windows 7 VM are currently restricted by firewall settings.
+- Next steps involve:
+  - Adjusting Windows Firewall settings.
+  - Verifying key services (`services.msc`) like:
+    - **File and Printer Sharing**
+    - **Remote Desktop Services**
+  - Using `netstat -ano` to confirm listening ports.
+
+---
+
+# 🚀 Next Actions
+- Configure Windows 7 firewall rules to open desired ports (135, 445, 3389).
+- Validate services are running and reachable for exploitation or lateral movement simulations.
+
+---
+
+> ✅ **Lab connectivity established. Vulnerability exposure and service hardening testing next phase ready.**
 
 
 - 🔗 [`reports/`](./reports/)
